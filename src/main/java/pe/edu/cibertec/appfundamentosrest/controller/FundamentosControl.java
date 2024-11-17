@@ -57,6 +57,17 @@ public class FundamentosControl {
     }
 
     //===================================================================//
+
+    @GetMapping({"/hola", "/hola/{nombre}"})
+    public ResponseEntity<String> hola(@PathVariable(required = false) String nombre){
+        if(nombre == null){
+            return new ResponseEntity<>("Hola Mundo Rest", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Hola" + nombre, HttpStatus.OK);
+    }
+
+    //===================================================================//
+
 }
 
 
